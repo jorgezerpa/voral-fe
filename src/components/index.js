@@ -10,7 +10,7 @@ import SideBar from './store/SideBar';
 import StoreHeader from './store/StoreHeader';
 import StoreGrid from './store/StoreGrid';
 import StoreCart from './store/StoreCart';
-import StoreModal from './store/StoreModal';
+import ProductDetails from './store/ProductDetails';
 import StoreCard from './store/StoreCard';
 import MobileCategories from './store/MobileCategories';
 import OrderStatus from './store/OrderStatus'
@@ -29,7 +29,7 @@ export {
     StoreHeader,
     StoreGrid,
     StoreCart,
-    StoreModal,
+    ProductDetails,
     StoreCard,
     MobileCategories,
     OrderStatus,

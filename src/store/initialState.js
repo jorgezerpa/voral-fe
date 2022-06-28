@@ -103,6 +103,7 @@ const CART_INITIAL_STATE = {
         id: 16,
       },
     ],
+    categories: ['vestidos', 'faldas', 'blusas', 'shorts', 'bodies', 'jeans'],
     cart: []
   };
 

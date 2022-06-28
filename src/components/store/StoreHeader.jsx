@@ -14,16 +14,16 @@ const StoreHeader = ({ image, title }) => {
             backgroundRepeat: 'no-repeat',
             backgroundImage: `url(${image})`,
             width: '100%',
-            height: '45vh',
+            height: { xs: '35vh', sm:'45vh' },
             borderRadius: '0 0 50px 50px',
             overflow: 'hidden'
         }}>
-            <Box sx={{
+            {/* <Box sx={{
                 position:'absolute',
                 width: '100%',
                 height: '100%',
                 background: `linear-gradient(200deg, ${palette.primary.light}, transparent)`,
-            }}></Box>
+            }}></Box> */}
             <Typography variant='h4' sx={{ color: '#fff', position: 'absolute', left: '30px', bottom: '30px' }}>
                 { title }
             </Typography>

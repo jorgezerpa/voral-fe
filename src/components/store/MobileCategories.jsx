@@ -12,7 +12,7 @@ import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import CartContext from '../../context/CartContext';
 
-const MobileCategories = ({ openState, toggleDrawer, categories, setProductsFiltered, handleSelectedCatagorie }) => {
+const MobileCategories = ({ showCategories, toggleCategories, setProductsFiltered, handleSelectedCatagorie }) => {
   const [ state ] = useContext(CartContext);
 
   const filterProducts = (categorie) => {
@@ -22,16 +22,16 @@ const MobileCategories = ({ openState, toggleDrawer, categories, setProductsFilt
   }
 
   useEffect(()=>{
-    filterProducts(categories[1])
+    filterProducts(state.categories[1])
   }, [])
 
 
   return (
     <div>
-        <Drawer sx={{ display:{xs:'block', sm:'none', '.MuiDrawer-paperAnchorBottom': { borderRadius:'20px 20px 0 0', padding:'10px 10px 100px 10px' } } }} anchor='bottom' open={openState} openClose={toggleDrawer()}>
+        <Drawer sx={{ display:{xs:'block', sm:'none', '.MuiDrawer-paperAnchorBottom': { borderRadius:'20px 20px 0 0', padding:'10px 10px 100px 10px' } } }} anchor='bottom' open={showCategories} onClose={toggleCategories()}>
           <Grid container spacing={2} sx={{  }}>
-            {categories.map((categorie, index) => (
-              <Grid item xs={4} sx={{ margin: '10px 0' }} key={categorie+index} onClick={()=>{filterProducts(categorie); const a = toggleDrawer(); a() }}>
+            {state.categories.map((categorie, index) => (
+              <Grid item xs={4} sx={{ margin: '10px 0' }} key={categorie+index} onClick={()=>{filterProducts(categorie); const toggler = toggleCategories(); toggler() }}>
                     <div style={{ borderRadius: '20px', overflow:'hidden', width: '100%', height: '100px', position: 'relative' }}>
                         <img style={{ width: '100%', height: '100%', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }} src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" alt=""  />
                         <Typography sx={{ lineHeight: '25px', position: 'absolute', bottom: '0', left: '0', width: '100%', background: 'rgba(0,0,0,.6)', fontSize: '12px', color: '#fff' }} textAlign='center' variant='body1'>{ categorie }</Typography>
