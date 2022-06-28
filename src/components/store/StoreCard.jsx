@@ -37,11 +37,11 @@ const StoreCard = ({ item, handleOpenModal }) => {
     return (
       <Box onClick={()=>handleOpenModal(item, isAdded)} sx={{position: 'relative', borderRadius: '10%', overflow:'hidden',transition: '.3s all', '&:hover':{ transform: 'scale(.95)' }, boxShadow: '1px 1px 1px 1px rgba(0,0,0,.2)' }}>
           <img src={`${item.img}?w=162&auto=format`} srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`} alt={item.title} loading="lazy" style={{borderBottomLeftRadius: '13%',borderBottomRightRadius: '13%',display: 'block',width: '100%'}} />
-          <Box sx={{ padding: '.6rem 2rem .6rem 1rem', borderRadius: '10% 0 0 10%' }}>
+          <Box sx={{ display:{ xs:'none', sm:'block' }, padding: '.6rem 2rem .6rem 1rem', borderRadius: '10% 0 0 10%' }}>
               <Typography sx={{ textAlign:'right', fontSize: '.85rem', fontWeight: 'bold'}} onClick={onClick(item)} variant='h6'>Product name</Typography>
               <Typography sx={{ textAlign:'right', fontSize: '.75rem'}} variant='body1'>100$</Typography>
           </Box>
-          <Box p={1} sx={{ justifyContent:'center', display:'flex' }}>
+          <Box p={1} sx={{ display:{ xs:'none', sm:'flex' }, justifyContent:'center' }}>
             { !isAdded() && <Button onClick={handleAddToCart(item)} variant='cardButton'>Agregar</Button> }
             { isAdded() && <Button onClick={handleRemoveFromCart(item)} variant='cardButton'>remover</Button> }
             </Box>       

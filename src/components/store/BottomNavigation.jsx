@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 
-const BottomNavigationMenu = ({ toggleDrawer }) => {
+const BottomNavigationMenu = ({ toggleDrawer, toggleCart }) => {
   const [value, setValue] = React.useState(0);
 
   return (
@@ -15,9 +15,9 @@ const BottomNavigationMenu = ({ toggleDrawer }) => {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="categories" onClick={toggleDrawer()} />
-        <BottomNavigationAction label="Logo" />
-        <BottomNavigationAction label="cart" />
+        <BottomNavigationAction fontWeight='bold' label="categories" onClick={toggleDrawer()} />
+        <BottomNavigationAction fontWeight='bold' label="Logo" />
+        <BottomNavigationAction fontWeight='bold' label="cart" onClick={toggleCart()} />
       </BottomNavigation>
     </Box>
   );

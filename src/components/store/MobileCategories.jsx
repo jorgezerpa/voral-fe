@@ -12,12 +12,13 @@ import { Typography } from '@mui/material';
 import { Grid } from '@mui/material';
 import CartContext from '../../context/CartContext';
 
-const MobileCategories = ({ cartState, toggleDrawer, categories, setProductsFiltered }) => {
+const MobileCategories = ({ openState, toggleDrawer, categories, setProductsFiltered, handleSelectedCatagorie }) => {
   const [ state ] = useContext(CartContext);
 
   const filterProducts = (categorie) => {
     const filteredProducts = state.products.filter(product=>product.categorie===categorie)
     setProductsFiltered(filteredProducts);
+    handleSelectedCatagorie(categorie)
   }
 
   useEffect(()=>{
@@ -27,7 +28,7 @@ const MobileCategories = ({ cartState, toggleDrawer, categories, setProductsFilt
 
   return (
     <div>
-        <Drawer sx={{ display:{xs:'block', sm:'none', '.MuiDrawer-paperAnchorBottom': { borderRadius:'20px', bottom: '60px'} } }} anchor='bottom' open={cartState} onClose={toggleDrawer()}>
+        <Drawer sx={{ display:{xs:'block', sm:'none', '.MuiDrawer-paperAnchorBottom': { borderRadius:'20px 20px 0 0', padding:'10px 10px 100px 10px' } } }} anchor='bottom' open={openState} openClose={toggleDrawer()}>
           <Grid container spacing={2} sx={{  }}>
             {categories.map((categorie, index) => (
               <Grid item xs={4} sx={{ margin: '10px 0' }} key={categorie+index} onClick={()=>{filterProducts(categorie); const a = toggleDrawer(); a() }}>

@@ -13,6 +13,7 @@ import StoreCart from './store/StoreCart';
 import StoreModal from './store/StoreModal';
 import StoreCard from './store/StoreCard';
 import MobileCategories from './store/MobileCategories';
+import OrderStatus from './store/OrderStatus'
 import BottomNavigationMenu from './store/BottomNavigation';
 
 export {
@@ -31,6 +32,7 @@ export {
     StoreModal,
     StoreCard,
     MobileCategories,
+    OrderStatus,
     BottomNavigationMenu,
 }
 
