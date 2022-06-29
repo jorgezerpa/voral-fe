@@ -16,6 +16,8 @@ import MobileCategories from './store/MobileCategories';
 import OrderStatus from './store/OrderStatus'
 import BottomNavigationMenu from './store/BottomNavigation';
 
+import DataSetter from './DataSetter';
+
 export {
     Map,
 
@@ -34,6 +36,8 @@ export {
     MobileCategories,
     OrderStatus,
     BottomNavigationMenu,
+
+    DataSetter
 }
 
 

@@ -36,10 +36,10 @@ const StoreCard = ({ item, handleProductDetails }) => {
 
     return (
       <Box onClick={()=>handleProductDetails(item, isAdded)} sx={{position: 'relative', borderRadius: '10%', overflow:'hidden',transition: '.3s all', '&:hover':{ transform: 'scale(.95)' }, boxShadow: '1px 1px 1px 1px rgba(0,0,0,.2)' }}>
-          <img src={`${item.img}?w=162&auto=format`} srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`} alt={item.title} loading="lazy" style={{borderBottomLeftRadius: '13%',borderBottomRightRadius: '13%',display: 'block',width: '100%'}} />
+          <img src={`${item.image}`} alt={item.name} loading="lazy" style={{borderBottomLeftRadius: '13%',borderBottomRightRadius: '13%',display: 'block',width: '100%'}} />
           <Box sx={{ display:{ xs:'none', sm:'block' }, padding: '.6rem 2rem .6rem 1rem', borderRadius: '10% 0 0 10%' }}>
-              <Typography sx={{ textAlign:'right', fontSize: '.85rem', fontWeight: 'bold'}} onClick={onClick(item)} variant='h6'>Product name</Typography>
-              <Typography sx={{ textAlign:'right', fontSize: '.75rem'}} variant='body1'>100$</Typography>
+              <Typography sx={{ textAlign:'right', fontSize: '.85rem', fontWeight: 'bold'}} onClick={onClick(item)} variant='h6'>{ item.name }</Typography>
+              <Typography sx={{ textAlign:'right', fontSize: '.75rem'}} variant='body1'>{ item.price }$</Typography>
           </Box>
           <Box p={1} sx={{ display:{ xs:'none', sm:'flex' }, justifyContent:'center' }}>
             { !isAdded() && <Button onClick={handleAddToCart(item)} variant='cardButton'>Agregar</Button> }

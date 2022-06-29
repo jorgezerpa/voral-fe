@@ -1,12 +1,12 @@
 import React, { useReducer, useState } from 'react'
 import {  homeHeader } from '../assets';
-import { SideBar, BottomNavigationMenu, StoreHeader, StoreGrid, StoreCart, ProductDetails, MobileCategories } from '../components';
+import { DataSetter, SideBar, BottomNavigationMenu, StoreHeader, StoreGrid, StoreCart, ProductDetails, MobileCategories } from '../components';
 import { Container, Box } from '@mui/material';
 
 import CartContext from '../context/CartContext';
 import CART_INITIAL_STATE from '../store/initialState';
 import { CartReducer } from '../store/cartReducer';
-import { addProduct, removeProduct, setCart } from '../store/actions';
+import { addProduct, removeProduct, setCart, setCategories } from '../store/actions';
 
 
 const Store = () => {
@@ -23,8 +23,10 @@ const Store = () => {
   const toggleCategories =  () => () => setShowCategories(!showCategories);
   const handleOpenProductDetails = ( data ) =>{ setProductDetailsInfo(data); setOpenProductDetails(true) };
 
+
   return (
-    <CartContext.Provider value={[ state, dispatch, addProduct, removeProduct, setCart ]}>
+    <CartContext.Provider value={[ state, dispatch, addProduct, removeProduct, setCart, setCategories ]}>
+        <DataSetter />
         <Container disableGutters sx={{ display: 'flex', position: 'relative' }} >
           <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
             <SideBar handleSelectedCatagorie={handleSelectedCategorie} setProductsFiltered={setProductsFiltered}   />

@@ -23,14 +23,19 @@ const ProductDetails = ({ openProductDetails, setOpenProductDetails, info }) => 
       <Dialog open={openProductDetails} onClose={handleClose} scroll='paper' sx={{ display: { xs:'none', sm:'block' }, '	.MuiDialog-paper': { borderRadius:'50px' } }} >
         <DialogContent >
             <Box sx={{ display:'flex', justifyContent:'center'  }}>
-              <img src={info.img} alt="" style={{ width: '50%', margin:' 0 auto', borderRadius: '30px' }} />
+              <img src={info.image} alt="" style={{ width: '50%', margin:' 0 auto', borderRadius: '30px' }} />
             </Box>
             <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
-                  { info.title }
+                  { info.name }
+            </Typography>
+            <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  { info.price }
+            </Typography>
+            <Typography id="modal-modal-title" variant="h6" component="h2" gutterBottom sx={{ fontWeight: 'bold' }}>
+                  { info.size }
             </Typography>
             <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ fontSize: '.8rem' }}>
-                  {/* { info.description } */}
-                  una super descripcion que hae que la people compre!
+                  { info.description }
             </Typography>
         </DialogContent>
         <DialogActions>   
@@ -45,11 +50,12 @@ const ProductDetails = ({ openProductDetails, setOpenProductDetails, info }) => 
       <Drawer sx={{ display:{xs:'block', sm:'none', '.MuiDrawer-paperAnchorBottom': { borderRadius:'20px 20px 0 0', padding:'10px 10px 100px 10px' } } }} anchor='top' open={openProductDetails} onClose={handleClose}>
           <Box sx={{ display:'flex', flexWrap:'wrap', width: '100%', height: '100%', background: '#fff', borderRadius: '20px 20px 0 0', padding: '1rem' }}>
             <Box sx={{ width: '100%' }} onClick={handleClose} >close</Box>
-            <Box sx={{ borderRadius:'20px', width: '100%', height: '70vh', position: 'relative', backgroundImage: `url(${info.img})`, backgroundSize:'cover', backgroundPosition:'center', backgroundRepeat:'no-repeat' }}></Box>           
+            <Box sx={{ borderRadius:'20px', width: '100%', height: '70vh', position: 'relative', backgroundImage: `url(${info.image})`, backgroundSize:'cover', backgroundPosition:'center', backgroundRepeat:'no-repeat' }}></Box>           
             <Box sx={{ width: '70%' }} >
-              <Typography mt={2} variant='h6'>{ info.title }</Typography>
-              <Typography variant='h6' gutterBottom >10$</Typography>
-              <Typography mt={2} variant='body1'>una super descripcion que hae que la people compre!</Typography>
+              <Typography mt={2} variant='h6'>{ info.name }</Typography>
+              <Typography variant='h6' gutterBottom >{ info.price }</Typography>
+              <Typography variant='h6' gutterBottom >{ info.size }</Typography>
+              <Typography mt={2} variant='body1'>{ info.description }</Typography>
               <Box sx={{minHeight:'30vh', width: '100%'}}></Box>
             </Box> 
             <Box>

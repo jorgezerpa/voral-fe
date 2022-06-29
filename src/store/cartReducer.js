@@ -1,5 +1,5 @@
-import { SET_CART, ADD_PRODUCT, REMOVE_PRODUCT, INCREASE_PRODUCT_QUANTITY, DECREASE_PRODUCT_QUANTITY, CHANGE_MANUALLY_PRODUCT_QUANTITY  } from './ActionTypes';
-import { setCart, addToCart, removeFromCart, increaseProductQuantity, decreaseProductQuantity, changeManuallyProductQuantity } from './states';
+import { SET_CART, SET_CATEGORIES, ADD_PRODUCT, REMOVE_PRODUCT, INCREASE_PRODUCT_QUANTITY, DECREASE_PRODUCT_QUANTITY, CHANGE_MANUALLY_PRODUCT_QUANTITY  } from './ActionTypes';
+import { setCart, setCategories, addToCart, removeFromCart, increaseProductQuantity, decreaseProductQuantity, changeManuallyProductQuantity } from './states';
 
 export function CartReducer(state, action){
     switch(action.type){
@@ -9,6 +9,8 @@ export function CartReducer(state, action){
             return removeFromCart(state, action)
         case SET_CART:
             return setCart(state, action)
+        case SET_CATEGORIES:
+            return setCategories(state, action)
         default:
             return state;
     }

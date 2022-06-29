@@ -21,3 +21,10 @@ export function setCart(state, action){
     }; 
 }
 
+export function setCategories(state, action){
+    return {
+        ...state,
+        categories: [...action.payload],
+    }; 
+}
+

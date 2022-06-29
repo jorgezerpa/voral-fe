@@ -19,14 +19,15 @@ const SideBar = ({ setProductsFiltered, handleSelectedCatagorie  }) => {
 
   const filterProducts = (categorie) => {
     const filteredProducts = state.products.filter(product=>product.categorie===categorie)
-    setProductsFiltered(filteredProducts);
+    if(categorie==='todo') setProductsFiltered(state.products);
+    if(categorie!=='todo') setProductsFiltered(filteredProducts);
     handleSelectedCatagorie(categorie);
     window.scrollTo(0,0);
   }
 
   useEffect(()=>{
-    filterProducts(state.categories[1])
-  }, [])
+    filterProducts('todo')
+  }, [state.products])
 
 
   return (
@@ -43,11 +44,18 @@ const SideBar = ({ setProductsFiltered, handleSelectedCatagorie  }) => {
           <Divider />
           <Typography mt={3} mb={1}>Categorías</Typography>
 
-          {state.categories.map((categorie, index) => (
-            <div style={styles.ListItem} key={categorie+index} onClick={()=>{filterProducts(categorie) }}>
+            <div style={styles.ListItem} onClick={()=>{filterProducts('todo') }}>
                 <div style={styles.ListItemInner}>
                     <img style={styles.ListItemImage} src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" alt=""  />
-                    <Typography sx={styles.ListItemText} textAlign='center' variant='body1'>{ categorie }</Typography>
+                    <Typography sx={styles.ListItemText} textAlign='center' variant='body1'>todo</Typography>
+                </div>
+            </div>
+
+          {state.categories.map((categorie, index) => (
+            <div style={styles.ListItem} key={categorie+index} onClick={()=>{filterProducts(categorie.name) }}>
+                <div style={styles.ListItemInner}>
+                    <img style={styles.ListItemImage} src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6" alt=""  />
+                    <Typography sx={styles.ListItemText} textAlign='center' variant='body1'>{ categorie.name }</Typography>
                 </div>
             </div>
           ))}

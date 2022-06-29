@@ -23,6 +23,7 @@ export default function OrderStatus({ status, open, setOpen }) {
     <div>
       <Modal open={open} onClose={handleClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
+          { status === 'loading' && <Typography textAlign='center' variant="h5" sx={{ fontStyle:'italic' }}>cargando, espera un momento...</Typography> }
           <Typography textAlign='center' variant="h5" component="h2" sx={{ fontStyle:'italic' }} >
             { status === 'success' && '¡Tú pedido fue Realizado con éxito!' }
             { status === 'error' && '¡Ups! ocurrió un error en el envio' }
